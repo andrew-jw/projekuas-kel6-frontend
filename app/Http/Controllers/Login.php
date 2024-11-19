@@ -22,7 +22,7 @@ class Login extends Controller
         if (!$account) {
             $failedAttempts = FailedAttempt::where('email', $email)->first();
 
-            if ($failedAttempts->attempts >= 3) {
+            if ($failedAttempts->attempts === 3) {
                 return redirect()->route('login')->with('error', 'Akun tidak ditemukan');
             }
 
@@ -46,7 +46,7 @@ class Login extends Controller
                 $failedAttempts->save();
 
                 if ($currentAttempts === 3) {
-                    return redirect()->route('login')->with('error', 'Akun anda diblokir silahkan reset password');
+                    return redirect()->route('login' )->with('error', 'Akun anda diblokir silahkan reset password');
                 } else {
                     $attempts = 3 - $currentAttempts;
                     return redirect()->route('login')->with('error', 'Password salah, percobaan tersisa ' . $attempts);

@@ -8,8 +8,7 @@
     <!-- JQuery script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Icon for title bar -->
-    <link rel="icon" href=
-        "/assets/brand-logo.png"
+    <link rel="icon" href="{{asset('img/brand-logo.png') }}"
     type="image/png" />
 </head>
 <body>
@@ -90,9 +89,9 @@
     <!-- Hero Start -->
     <div class="hero fade-in blur">
         <div class="carousel-hero">
-            <img src="assets/img1hero.JPG" alt="Image 1">
-            <img src="assets/img2hero.jpg" alt="Image 2">
-            <img src="assets/img3hero.jpg" alt="Image 3">
+            <img src="{{ asset('assets/img1hero.JPG') }}" alt="Image 1">
+            <img src="{{ asset('assets/img2hero.jpg') }}" alt="Image 2">
+            <img src="{{ asset('assets/img3hero.jpg') }}" alt="Image 3">
         </div>
         <button class="prev" onclick="prevSlide()">❮</button>
         <button class="next" onclick="nextSlide()">❯</button>
@@ -111,8 +110,8 @@
 
     <!-- Shoemaking Images Start -->
     <div class="shoemaking fade-in blur">
-        <img class="shoemaking-img" src="assets/img1history.jpg">
-        <img class="shoemaking-img" src="assets/img2history.jpg">
+        <img class="shoemaking-img" src="{{ asset('assets/img1history.jpg') }}">
+        <img class="shoemaking-img" src="{{ asset('assets/img2history.jpg') }}">
     </div>
     <!-- Shoemaking Images End -->
 
@@ -125,7 +124,7 @@
             <div class="products-container">
                 <div class="product">
                     <a href ="Products/officer-shoe/produk11.html">
-                        <img class="featured-img" src="assets/img1featured.jpg">    
+                        <img class="featured-img" src="{{ asset('assets/img1featured.jpg') }}">    
                     </a>
                     <a href="Products/officer-shoe/produk11.html">
                         <h4>Officer Shoes - Black</h4>    
@@ -133,7 +132,7 @@
                 </div>
                 <div class="product">
                     <a href="Products/legetant/produk7.html">
-                        <img class="featured-img" src="assets/img2featured.jpg">    
+                        <img class="featured-img" src="{{ asset('assets/img2featured.jpg') }}">    
                     </a>
                     <a href="Products/legetant/produk7.html">
                         <h4>Legatant - Waxed</h4>    
@@ -141,7 +140,7 @@
                 </div>
                 <div class="product">
                     <a href="Products/Marine-dress-boots/produk9.html">
-                        <img class="featured-img" src="assets/img3featured.jpg">    
+                        <img class="featured-img" src="{{ asset('assets/img3featured.jpg') }}">    
                     </a>
                     <a href="Products/Marine-dress-boots/produk9.html">
                         <h4>Marine Dress Shoe - Shell</h4>    
@@ -156,14 +155,14 @@
                 <button class="products-carousel-button next-products" onclick="prevProductCarousel()">❯</button>
             </div>
             <div class="multi-carousel">
-                <a href="Products/liberty-boots/produk8.html" class="product-img"><img src="assets/img1.jpg"></a>
-                <a href="Products/cordmaster-shoe/produk4.html" class="product-img"><img src="assets/img2.jpg"></a>
-                <a href="Products/regent-boots/produk12.html" class="product-img"><img src="assets/img3.jpg"></a>
-                <a href="Products/Sylt-Pump-In-Black-Brushed-Leather/produk13.html" class="product-img"><img src="assets/img4.jpg"></a>
-                <a href="Products/Sylt-Slingback-Pump-In-Light-Beige-Nappa-Leather/produk19.html" class="product-img"><img src="assets/img5.jpg"></a>
-                <a href="Products/Ballyrina-Mary-Jane-Pump-In-Black-Leather/produk17.html" class="product-img"><img src="assets/img6.jpg"></a>
-                <a href="Products/Kerbs-Driver-In-White-Leather/produk22.html" class="product-img"><img src="assets/img7.jpg"></a>
-                <a href="Products/Ballyrina-Flat-In-Black-Leather/produk23.html" class="product-img"><img src="assets/img8.jpg"></a>
+                <a href="Products/liberty-boots/produk8.html" class="product-img"><img src="{{ asset('assets/img1.jpg') }}"></a>
+                <a href="Products/cordmaster-shoe/produk4.html" class="product-img"><img src="{{ asset('assets/img2.jpg') }}"></a>
+                <a href="Products/regent-boots/produk12.html" class="product-img"><img src="{{ asset('assets/img3.jpg') }}"></a>
+                <a href="Products/Sylt-Pump-In-Black-Brushed-Leather/produk13.html" class="product-img"><img src="{{ asset('assets/img4.jpg') }}"></a>
+                <a href="Products/Sylt-Slingback-Pump-In-Light-Beige-Nappa-Leather/produk19.html" class="product-img"><img src="{{ asset('assets/img5.jpg') }}"></a>
+                <a href="Products/Ballyrina-Mary-Jane-Pump-In-Black-Leather/produk17.html" class="product-img"><img src="{{ asset('assets/img6.jpg') }}"></a>
+                <a href="Products/Kerbs-Driver-In-White-Leather/produk22.html" class="product-img"><img src="{{ asset('assets/img7.jpg') }}"></a>
+                <a href="Products/Ballyrina-Flat-In-Black-Leather/produk23.html" class="product-img"><img src="{{ asset('assets/img8.jpg') }}"></a>
             </div>
 
              <!-- Slidebar for mobile/tablet view only-->
@@ -176,13 +175,13 @@
     <div class="ip fade-in blur">
         <div class="row-ip">
             <div class="img-ip-container">
-                <img class="img-ip" src ="assets/ip_img1.jpg">
+                <img class="img-ip" src="{{ asset('assets/ip_img1.jpg') }}">
                 <div class="img-ip-text">
                     <h3>QUALITY</h3>
                 </div>
             </div>
             <div class="img-ip-container">
-                <img class="img-ip" src ="assets/ip_img2.jpg">
+                <img class="img-ip" src="{{ asset('assets/ip_img2.jpg') }}">
                 <div class="img-ip-text">
                     <h3>COMFORT</h3>
                 </div> 
@@ -190,13 +189,13 @@
         </div>
         <div class="row-ip">
             <div class="img-ip-container">
-                <img class="img-ip" id="img-ip-spesific" src ="assets/ip_img3.jpg">
+                <img class="img-ip" id="img-ip-spesific" src="{{ asset('assets/ip_img3.jpg') }}">
                 <div class="img-ip-text" id="spesific-img-text">
                     <h3>STYLE</h3>
                 </div> 
             </div>
             <div class="img-ip-container">
-                <img class="img-ip" src ="assets/ip_img4.jpg"> 
+                <img class="img-ip" src="{{ asset('assets/ip_img4.jpg') }}"> 
                 <div class="img-ip-text">
                     <h3>ELEGANCE</h3>
                 </div>

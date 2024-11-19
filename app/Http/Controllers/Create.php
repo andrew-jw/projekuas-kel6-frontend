@@ -8,7 +8,7 @@ class Create extends Controller
 {
     public function index()
     {
-        return view('create');
+        return view('home');
     }
 
     // mengecek apakah email sudah terdaftar
