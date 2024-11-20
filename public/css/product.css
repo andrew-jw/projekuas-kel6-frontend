@@ -1,17 +1,26 @@
-/* 1.General Start */
-html, body {
+/* Global Styles */
+body {
+    font-family: 'Times New Roman', sans-serif;
     margin: 0;
     padding: 0;
-    height: 100%;
-    width: 100vw;
-    overflow-x: hidden;
-    background-color:#FEFFFF;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    scroll-behavior: smooth;
+    background-color: #fff;
+    line-height: 1.6;
 }
-/* 1.General End */
 
-/* 2.Entrance Animation and Filter Start */
+/* Header Styles */
+.header {
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.header img {
+    height: 50px;
+}
+
+/* Entrance Animation and Filter Start */
+
 .fade-in {
     opacity: 0 !important;
     transform: translateY(20px) !important; 
@@ -33,10 +42,110 @@ html, body {
 .blur.activeblur {
     filter: blur(1px);
 }
+/* Entrance Animation and Filter End */
 
-/* 2.Entrance Animation and Filter End */
+/* Container Styles */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
 
-/* 3.Navbar Start */
+.left-column, .right-column {
+    flex: 1;
+    padding: 20px;
+}
+
+.left-column img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+/* Right Column Styles */
+.right-column h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.right-column .price {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.right-column p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.right-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.right-column ul li {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.right-column .config-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.right-column .config-section {
+    margin-bottom: 20px;
+}
+
+.right-column .config-section img {
+    width: auto;
+    height: 50px;
+    margin-right: 10px;
+    border: 1px solid #e7e7e7;
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.right-column .config-section img.selected {
+    border: 2px solid #FF9900;
+    transform: scale(1.05);
+}
+
+.right-column select, .right-column input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.right-column .config-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #17252A;
+    color: white;
+    padding: 40px 40px 20px;
+    text-align: center;
+    border-top: 1px solid #e7e7e7;
+}
+
+/* Navbar Styles */
+/* Navbar Start */
 .navbar {
     display: flex;
     flex-direction: row;
@@ -134,12 +243,11 @@ html, body {
 .close-button { 
     display: none;
 }
-/* 3.Navbar End */
+/* Navbar End */
 
 /* 4.Sidebars Start */
 .sidebar-cart,
-.sidebar-account,
-.sidebar-forgot {
+.sidebar-account {
     width: 300px;
     height: 100%;
     background: #F3B552;
@@ -250,7 +358,7 @@ html, body {
     outline: none; 
 }
 
-#forgot-button, #create-account, #admin-login {
+#forgot-password, #create-account {
     display: block;
     color: #F0F0F0;
     font-size: 16px;
@@ -260,7 +368,7 @@ html, body {
     font-size: 16px;
 }
 
-#forgot-button:hover, #create-account:hover, #admin-login:hover {
+#forgot-password:hover, #create-account:hover {
     text-decoration: underline;
 }
 
@@ -280,373 +388,31 @@ html, body {
 .sidebar-account ul button:hover  {
     background-color: #CC7A00; 
 }
-
-.sidebar-forgot {
-    width: 300px;
-    height: 100%;
-    background: #F3B552;
-    position: fixed;
-    top: 0;
-    justify-content: flex-end;
-    right: -300px;
-    overflow: hidden;
-    transition: right 0.3s ease; 
-    justify-content: right;
-}
-
-.sidebar-forgot.active {
-    right: 0; 
-}
-
-.sidebar-forgot p {
-    color: #F0F0F0;
-    font-size: 17px;
-}
-
-.sidebar-forgot ul{
-    margin: 0;
-    padding: 0;
-}
-
-.sidebar-forgot ul li{
-    padding-left: 25px;
-    list-style: none;
-    margin-bottom: 15px; 
-}
-
-.sidebar-forgot ul li input[type="email-account"]{
-    width: 100%; 
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box; 
-    transition: border-color 0.3s ease;
-}
-
-.sidebar-forgot ul li input[type="email-account"]:focus {
-    border-color: grey; 
-    outline: none; 
-}
-
-.sidebar-forgot ul button  {
-    background-color: #FF9900;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    margin-top: 10px; 
-    transition: background-color 0.3s ease;
-}
-
-.sidebar-forgot ul button:hover  {
-    background-color: #CC7A00; 
-}
-
 /* 4.Sidebars End */
 
-/* 5.Hero Start */
-.hero {
-    position: relative;
-    width: 100%;
-    margin: auto;
-    overflow: hidden;
-    background-color: #EEEEEE;
-  }
-  
-.carousel-hero {
-    display: flex;
-    transition: transform 0.8s ease-in-out;
-}
-  
-.carousel-hero img {
-    width: 100%;
-    height: 30%;
-    flex-shrink: 0;
-}
-  
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    border-radius:8px;
-    padding: 12px;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s ease-out
-}
-
-/* Showing the next and previous button for corousel when hovering over hero */
-.hero:hover .prev{
-    opacity: 1;
-}
-
-.hero:hover .next {
-    opacity: 1;
-}
-  
-.prev {
-    left: 20px;
-}
-
-.next {
-    right: 20px;
-}
-/* 5.Hero End */
-  
-/* 6.History Start */
-.history {
-    padding-left: 90px;
-    padding-right: 90px;
-    padding-top: 8px;
-    padding-bottom: 30px;
-    background-color: #EEEEEE;
-}
-
-.history h2 {
-    font-size: 26px;
-    color: #393343;
-    font-weight:600;
-    text-align: center;
-}
-
-.history h3 {
-    color: #393343;
-    font-weight:500;
-    text-align: center;
-}
-/* 6.History End */
-
-/* 7.Shoemaking Start */
-.shoemaking {
-    display: flex;
-    flex-direction: row;
-}
-
-.shoemaking-img {
-    width: 50vw;
-}
-/* 7.Shoemaking End */
-
-/* 8.Products Start */
-.products {
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 20px;
-    padding-bottom: 40px;
-    background-color: #FEFFFF;
-}
-
-.latest-product{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 42px;
-}
-
-.latest-product-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 20px 0;
-}
-
-.latest-product-title::before, .latest-product-title::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid #e0e0e0; 
-    margin: 0 10px;
-}
-
-.latest-product-title span {
-    font-weight: bold;
-    font-size: 28px;
-    color: #333; 
-    text-transform: uppercase;
-    color: #393343;
-}
-
-.products-container {
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-}
-
-.featured-img {
-    width: 400px;
-    height: 400px;
-    transition: filter 0.2s ease;
-}
-
-.featured-img:hover {
-    filter:brightness(0.8);
-}
-
-.product {
-    display: flex;
-    flex-direction: column;
-}
-
-.product a {
-    text-decoration: none; 
-}
-
-.product h4 {
-    font-size: 24px;
-    font-weight: 500;
-    text-align: center;
-    color: #393343;
-    transition: color 0.2s ease;
-}
-
-.product h4:hover {
-    color:#F3B552;
-}
-
-.products-carousel {
-    padding-top:50px;
-    max-width: 100%;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-/* Destkop only buttons */
-.products-carousel-buttons {
-    display: flex;
-    flex-direction: row;
-    align-items: right;
-    gap: 6px;
-    padding-bottom: 25px;
-    justify-content: right;
-}
-
-.products-carousel-button {
-    top: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius:4px;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-/* Smartphone and tablet only slider */
-.slider {
-    display: none;
-}
-
-.multi-carousel {
-    display: flex;
-    gap: 10px; 
-    transition: transform 0.5s ease-in-out;
-}
-
-.product-img {
-    flex: 0 0 calc(25% - 10px); 
-    box-sizing: border-box;
-}
-
-.product-img img {
-    width: 100%;
-    aspect-ratio: 1 / 1; 
-    object-fit: cover;
-    display: block;
-    transition: filter 0.3s ease;
-}
-
-.product-img:hover img {
-    filter: brightness(0.8);
-}
-/* 8.Products End */
-
-/* 9.Interesting Points Start */
-.ip {
-    display: flex;
-    flex-direction: column;
-    background-color: #EEEEEE;
-}
-
-.row-ip {
-    display: flex;
-    flex-direction: row;
-}
-
-.img-ip {
-    width: 50vw;
-    transition: filter 0.3s ease-in-out; 
-}
-
-.img-ip-container {
-    position: relative;
-}
-
-.img-ip-container:hover .img-ip {
-    filter: brightness(0.7);
-}
-
-.img-ip-container:hover #img-ip-spesific {
-    filter: brightness(0.9);
-}
-
-.img-ip-text {
-    position: absolute; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #FEFFFF;
-    top: 50%; 
-    left: 50%; 
-    right: 50%;
-}
-
-.img-ip-text h3{
-    font-size: 34px;
-}
-
-.img-ip-text a{
-    font-size: 18px;
-}
-
-#spesific-img-text {
-    color: #393343;
-}
-/* 9.Interesting Points End */
-
-/* 10.Footer Start */
+/* Footer Start */
 .footer {
-    background-color:  #17252A;
-    color: white; 
-    padding-top: 40px;
-    padding-bottom: 20px;
-    padding-left:  40px;
-    padding-right:  40px;
-    text-align: center; 
+    background-color: #17252A;
+    color: white;
+    padding: 40px 40px 20px;
+    text-align: center;
+    border-top: 1px solid #e7e7e7;
 }
 
 .footer-content {
-    display: flex; 
-    justify-content: space-between; 
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .logo img {
-    width: 75px; 
+    width: 75px;
     height: 75px;
 }
 
 .social {
-    display: flex; 
-    flex-direction: row;
-    padding-right: 30px;
+    display: flex;
     gap: 6px;
 }
 
@@ -657,7 +423,7 @@ html, body {
     align-items: center;
     width: 52px;
     height: 52px;
-    border-radius: 50%; 
+    border-radius: 50%;
     transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -680,23 +446,88 @@ html, body {
 }
 
 .footer-link {
-    color: #FEFFFF; 
+    color: #FEFFFF;
     text-decoration: none;
     font-size: 20px;
-    font-weight: 600; 
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-    color:#F3B552;
+    color: #F3B552;
 }
 
 .copyright {
     font-size: 17px;
-    margin-top: 60px; 
+    margin-top: 60px;
     color: #666;
 }
-/* 10.Footer End */
+
+/* Dropdown Indication */
+.right-column select {
+    appearance: none;
+    background-image: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/svgs/solid/caret-down.svg');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    margin-bottom: 20px;
+}
+
+/* Shoe Last Options */
+.shoe-last-options, .toe-box-options {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.shoe-last-option, .toe-box-option {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.shoe-last-option:hover, .toe-box-option:hover {
+    transform: scale(1.1);
+}
+
+.description {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.add-to-cart {
+    background-color: #FF9900;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #e68a00;
+}
+
+/* Preview Styles */
+.toe-box-preview, .shoe-last-preview {
+    position: absolute;
+    display: none;
+    border: 1px solid #e7e7e7;
+    background-color: #fff;
+    z-index: 1000;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.toe-box-preview img, .shoe-last-preview img {
+    width: 100px;
+    height: auto;
+}
 
 @media (max-width: 768px) {
     /* Navbar Start */
@@ -787,70 +618,27 @@ html, body {
     /* Navbar End */
 }
 
-/* Adjustments For Smartphone */
-@media only screen and (max-width: 600px) {
-    /* 1.History Start */
-    .history {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-    /* 1.History End */
-
-    /* 2.Hero Start */
-    .next, .prev {
-        opacity: 1;
-    }
-    /* 2.Hero End */
-
-    /* 3.Shoemaking Start */
-    .shoemaking {
+/* Responsive Styles for Footer
+ /* Adjustments For Smartphone */
+ @media only screen and (max-width: 600px) {
+    /* Container styles */
+    .container {
         flex-direction: column;
     }
 
-    .shoemaking-img {
-        width: 100vw;
-    }
-    /* 3.Shoemaking End */
-
-    /* 4.Products start */
-    .products {
-        padding-left: 68px;
-        padding-right: 68px;
+    .left-column img {
+        width: 100%;
     }
 
-    .products-container {
-        flex-direction: column;
-    }
-
-    .featured-img {
-        width: 320px;
-        height: 320px;
-    }
-
-    .products-carousel-buttons {
+    #image2 {
         display: none;
     }
 
-    .slider {
-        display: block;
+    .right-column img {
+        display: none;
     }
 
-    .product-img {
-        flex: 0 0 calc(50% - 10px);
-    }
-    /* 4.Products End */
-
-    /* 5.Interesting Points Start  */
-    .img-ip {
-        width: 100vw;
-    }
-
-    .row-ip {
-        flex-direction: column;
-    }
-    /* 5.Interesting Points End */
-
-    /* 6.Footer Start */
+    /* Footer Start */
     .footer-content {
         flex-direction: column;
         gap: 30px;
@@ -867,60 +655,14 @@ html, body {
         padding-left: 0px;
         gap: 10px;
     }
-    /* 6.Footer End */
+    /* Footer End */
 }
-
 
 
 /* Adjustments For Tablet */
 @media only screen and (max-width: 992px) and (min-width: 600px)
 {
-   /* 1.History Start */
-   .history {
-    padding-left: 40px;
-    padding-right: 40px;
-    }
-    /* 1.History End */
-
-    /* 2.Shoemaking Start */
-    .shoemaking {
-        flex-direction: column;
-    }
-
-    .shoemaking-img {
-        width: 100vw;
-    }
-    /* 2.Shoemaking End */
-
-    /* 3.Products start */
-    .products {
-        padding-left: 68px;
-        padding-right: 68px;
-    }
-
-    .products-container {
-        flex-direction: column;
-    }
-
-    .featured-img {
-        width: 450px;
-        height: 450px;
-    }
-
-    .products-carousel-buttons {
-        display: none;
-    }
-
-    .slider {
-        display: block;
-    }
-
-    .product-img {
-        flex: 0 0 calc(50% - 10px);
-    }
-    /* 3.Products End */
-
-    /* 4.Footer Start */
+    /* Footer Start */
     .footer-content {
         flex-direction: column;
         gap: 30px;
@@ -936,5 +678,5 @@ html, body {
         gap: 50px;
         padding-left: 0px;
     }
-    /* 4.Footer End */
+    /* Footer End */
 }

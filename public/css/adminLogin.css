@@ -47,7 +47,7 @@ html, body {
 }
 
 .navbar-menu li h3 {
-    font-size: 22px;
+    font-size: 27px;
     transition: color 0.3s ease, transform 0.3s ease;
     color: #393343;
     font-weight: 500;
@@ -129,223 +129,10 @@ html, body {
 }
 /* Entrance Animation and Filter End */
 
+/* Login Section Start */
 
-/* Sidebars Start */
-.sidebar-cart,
-.sidebar-account,
-.sidebar-forgot {
-    width: 300px;
-    height: 100%;
-    background: #F3B552;
-    position: fixed;
-    top: 0;
-    justify-content: flex-end;
-    right: -300px;
-    overflow: hidden;
-    z-index: 1300;
-    transition: right 0.3s ease; 
-    justify-content: right;
-    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
-}
-
-.sidebar-cart.active {
-    right: 0; 
-}
-
-.sidebar-container {
-    padding: 25px;
-}
-
-.close-sidebar {
-    padding-right: 200px;
-    background: none;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: #333;
-    align-items: left;
-    transition: color 0.3s ease;
-}
-
-.close-sidebar:hover {
-    color: #FF4500;
-    background:none;
-}
-
-.sidebar-container h3 {
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: normal;
-    width: 100%;
-    line-height: 80px;
-    display: block;
-}
-
-.divider {
-    border: none; 
-    height: 1px; 
-    background-color: #333; 
-    margin: 20px 0; 
-}
-
-.sidebar-cart ul{
-    margin: 0;
-    padding: 0;
-}
-
-.sidebar-cart ul li{
-    padding-left: 25px;
-    list-style: none;
-}
-
-.sidebar-account {
-    width: 300px;
-    height: 100%;
-    background: #F3B552;
-    position: fixed;
-    top: 0;
-    justify-content: flex-end;
-    right: -300px;
-    overflow: hidden;
-    transition: right 0.3s ease; 
-    justify-content: right;
-}
-
-.sidebar-account.active {
-    right: 0; 
-}
-
-.sidebar-account ul{
-    margin: 0;
-    padding: 0;
-}
-
-.sidebar-account ul li{
-    padding-left: 25px;
-    list-style: none;
-    margin-bottom: 15px; 
-}
-
-.sidebar-account ul li input[type="email-account"],
-.sidebar-account ul li input[type="password"] {
-    width: 100%; 
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box; 
-    transition: border-color 0.3s ease;
-}
-
-.sidebar-account ul li input[type="email-account"]:focus,
-.sidebar-account ul li input[type="password"]:focus {
-    border-color: grey; 
-    outline: none; 
-}
-
-#forgot-button, #create-account, #admin-login {
-    display: block;
-    color: #F0F0F0;
-    font-size: 16px;
-    text-decoration: none;
-    cursor: pointer;
-    text-align: left;
-    font-size: 16px;
-}
-
-#forgot-button:hover, #create-account:hover, #admin-login:hover {
-    text-decoration: underline;
-}
-
-.sidebar-account ul button  {
-    background-color: #FF9900;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    margin-top: 10px; 
-    transition: background-color 0.3s ease;
-}
-
-.sidebar-account ul button:hover  {
-    background-color: #CC7A00; 
-}
-
-.sidebar-forgot {
-    width: 300px;
-    height: 100%;
-    background: #F3B552;
-    position: fixed;
-    top: 0;
-    justify-content: flex-end;
-    right: -300px;
-    overflow: hidden;
-    transition: right 0.3s ease; 
-    justify-content: right;
-}
-
-.sidebar-forgot.active {
-    right: 0; 
-}
-
-.sidebar-forgot p {
-    color: #F0F0F0;
-    font-size: 17px;
-}
-
-.sidebar-forgot ul{
-    margin: 0;
-    padding: 0;
-}
-
-.sidebar-forgot ul li{
-    padding-left: 25px;
-    list-style: none;
-    margin-bottom: 15px; 
-}
-
-.sidebar-forgot ul li input[type="email-account"]{
-    width: 100%; 
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box; 
-    transition: border-color 0.3s ease;
-}
-
-.sidebar-forgot ul li input[type="email-account"]:focus {
-    border-color: grey; 
-    outline: none; 
-}
-
-.sidebar-forgot ul button  {
-    background-color: #FF9900;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    margin-top: 10px; 
-    transition: background-color 0.3s ease;
-}
-
-.sidebar-forgot ul button:hover  {
-    background-color: #CC7A00; 
-}
-
-/* Sidebars End */
-
-/* Contact Section Start */
 .modal {
-    background-color: #FFFFFF; 
+    background-color: #FFFFFF; /* Pure white background */
     position: relative; 
     width: 100%; 
     height: auto; 
@@ -353,6 +140,7 @@ html, body {
     justify-content: center; 
     align-items: center; 
     padding: 40px; 
+    padding-bottom: 175px;
 }
 
 .modal-overlay {
@@ -368,6 +156,8 @@ html, body {
 .modal-content {
     background-color: #FFFFFF; 
     padding: 34px;
+    padding-top: 50px;
+    padding-bottom: 80px;
     border-radius: 10px; 
     width: 100%; 
     max-width: 600px; 
@@ -386,15 +176,15 @@ html, body {
 
 .modal-content p {
     font-size: 1em;
-    color: #666; 
+    color: #666; /* Medium gray for supporting text */
     text-align: justify;
-    margin-bottom: 20px; 
+    margin-bottom: 20px; /* Add spacing below the paragraph */
 }
 
 .form-group-inline {
     display: flex;
-    gap: 15px; 
-    flex-wrap: wrap; 
+    gap: 15px; /* Space between inputs */
+    flex-wrap: wrap; /* Ensure proper wrapping on small screens */
 }
 
 .form-group {
@@ -402,24 +192,24 @@ html, body {
     flex-direction: column;
     flex: 1; 
     margin-bottom: 15px;
-    margin-top: 10px; 
+    margin-top: 10px; /* Added margin for spacing between form groups */
 }
 
 label {
-    font-size: 0.9em; 
-    color: #333; 
+    font-size: 0.9em; /* Smaller, readable label size */
+    color: #333; /* Dark gray for label text */
     margin-bottom: 5px; 
     display: block;
 }
 
 input, 
 textarea {
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 5px; /* Rounded corners */
     padding: 10px;
     font-size: 1em;
-    width: 100%; 
-    box-sizing: border-box;
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Prevent overflow */
 }
 
 input:focus, 
@@ -476,7 +266,7 @@ textarea {
     flex: 1;
 }
 
-/* Contact Section End */
+/* Login Section End */
 
 /* Close button for navbar mobile view */
 .close-button { 
@@ -561,6 +351,7 @@ textarea {
     /* Contact Section Start */
     .modal {
         padding: 20px;
+        padding-bottom: 160px;
     }
 
     .modal-content {

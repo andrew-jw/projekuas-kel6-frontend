@@ -73,13 +73,33 @@
                     <input type="password" id="password" name="password" placeholder="Password" required>
                 </li>
                 <li>
-                    <a href="#" id="forgot-password">Forgot your password?</a>
+                    <a href="#" id="forgot-button">Forgot your password?</a>
                 </li>
                 <li>
-                    <button type="submit" form="account-form">Login</button>
+                    <button type="submit" form="account-form" id="login">Login</button>
                 </li>
                 <li>
-                    <a href="#" id="create-account">New customer? Create a new account</a>
+                    <a href="Register/index.html" id="create-account">New customer? Create a new account</a>
+                </li>
+                <li>
+                    <a href="AdminLogin/index.html" id="admin-login">Admin Login</a>
+                </li>
+            </ul>    
+        </div>
+    </div>
+
+    <div class="sidebar-forgot" id="sidebar-forgot">
+        <div class="sidebar-container">
+            <button class="close-sidebar" id="close-forgot">&times;</button> 
+            <h3>RESET PASSWORD</h3>
+            <hr class="divider">
+            <p>Lost your password? Please enter your email address. You will receive a link to create a new password via email.</p>
+            <ul>
+                <li>
+                    <input type="email-account" id="email-account" name="email-account" placeholder="Email" required>
+                </li>
+                <li>
+                    <button type="submit" form="account-form" id="reset">Reset Password</button>
                 </li>
             </ul>    
         </div>
@@ -88,10 +108,10 @@
 
     <!-- Contact Form Start -->
     <div class="modal fade-in blur">
+        <div class="modal-overlay"></div>
         <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>Contact Sales</h2>
-            <p>Let's get this conversation started. Tell us a bit about yourself, and we’ll get in touch as soon as we can.</p>
+            <h2>Contact Us</h2>
+            <p>We would love to hear from you on our service, products, website, or anything you want to share with us. Please fill the form below</p>
             <form>
                 <div class="form-group-inline">
                     <div class="form-group">
@@ -104,14 +124,14 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="email">Work Email</label>
+                    <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
                     <textarea id="message" name="message" required></textarea>
                 </div>
-                <button type="submit">Contact Sales</button>
+                <button type="submit">Send ></button>
             </form>
         </div>
     </div>

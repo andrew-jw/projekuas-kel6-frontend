@@ -73,13 +73,33 @@
                     <input type="password" id="password" name="password" placeholder="Password" required>
                 </li>
                 <li>
-                    <a href="#" id="forgot-password">Forgot your password?</a>
+                    <a href="#" id="forgot-button">Forgot your password?</a>
                 </li>
                 <li>
                     <button type="submit" form="account-form" id="login">Login</button>
                 </li>
                 <li>
-                    <a href="#" id="create-account">New customer? Create a new account</a>
+                    <a href="Register/index.html" id="create-account">New customer? Create a new account</a>
+                </li>
+                <li>
+                    <a href="AdminLogin/index.html" id="admin-login">Admin Login</a>
+                </li>
+            </ul>    
+        </div>
+    </div>
+
+    <div class="sidebar-forgot" id="sidebar-forgot">
+        <div class="sidebar-container">
+            <button class="close-sidebar" id="close-forgot">&times;</button> 
+            <h3>RESET PASSWORD</h3>
+            <hr class="divider">
+            <p>Lost your password? Please enter your email address. You will receive a link to create a new password via email.</p>
+            <ul>
+                <li>
+                    <input type="email-account" id="email-account" name="email-account" placeholder="Email" required>
+                </li>
+                <li>
+                    <button type="submit" form="account-form" id="reset">Reset Password</button>
                 </li>
             </ul>    
         </div>
