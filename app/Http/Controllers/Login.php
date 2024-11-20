@@ -1,15 +1,20 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Account;   
+use App\Models\FailedAttempts;
+use App\Models\Balance;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class Login extends Controller
 {
 
     public function index()
     {
-        return view('login');
+        return view('home');
     }
 
     public function process_login(Request $request)
@@ -23,7 +28,7 @@ class Login extends Controller
             $failedAttempts = FailedAttempt::where('email', $email)->first();
 
             if ($failedAttempts->attempts === 3) {
-                return redirect()->route('login')->with('error', 'Akun tidak ditemukan');
+                return redirect()->route('home')->with('error', 'Akun tidak ditemukan');
             }
 
             if (Hash::check($password, $account->password)) {
@@ -38,22 +43,22 @@ class Login extends Controller
                 $loginHistory->datetime = now()->setTimezone('Asia/Jakarta')->format('Y-m-d H:i:s');
                 $loginHistory->save();
 
-                auth::login($account);
-                return redirect()->intended(route('home', ['id' => $account->id]));
+                Auth::login($account);
+                return redirect()->intended(route('halo', ['id' => $account->id]));
             } else {
                 $failedAttempts->attempts++;
                 $currentAttempts = $failedAttempts->attempts;
                 $failedAttempts->save();
 
                 if ($currentAttempts === 3) {
-                    return redirect()->route('login' )->with('error', 'Akun anda diblokir silahkan reset password');
+                    return redirect()->route('home' )->with('error', 'Akun anda diblokir silahkan reset password');
                 } else {
                     $attempts = 3 - $currentAttempts;
-                    return redirect()->route('login')->with('error', 'Password salah, percobaan tersisa ' . $attempts);
+                    return redirect()->route('home')->with('error', 'Password salah, percobaan tersisa ' . $attempts);
                 }
             }
         } else {
-            return redirect()->route('login')->with('error', 'Akun tidak ditemukan');
+            return redirect()->route('home')->with('error', 'Akun tidak ditemukan');
         }
     }
 

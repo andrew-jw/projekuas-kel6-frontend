@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - SuShoes</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
     <!-- JQuery script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -50,24 +50,29 @@
         <div class="modal-content">
             <h2>Register</h2>
             <p>Welcome! Please fill out the form to register.</p>
-            <form>
+            <form action="{{ route('register.create') }}" method="POST">
+                @csrf   
                 <div class="form-group-inline">
                     <div class="form-group">
-                        <label for="first-name">First Name</label>
-                        <input type="text" id="first-name" name="first-name" required>
+                        <label for="first_name">First Name</label>
+                        <input type="text" id="first_name" name="first_name" required value="{{ old('first_name') }}">
+                        @error('first_name') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <label for="last-name">Last Name</label>
-                        <input type="text" id="last-name" name="last-name" required>
+                        <label for="last_name">Last Name</label>
+                        <input type="text" id="last_name" name="last_name" required value="{{ old('last_name') }}">
+                        @error('last_name') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" required value="{{ old('email') }}">
+                    @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required></input>
+                    <input type="password" id="password" name="password" required>
+                    @error('password') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
                 <button type="submit">Register ></button>
             </form>
@@ -102,6 +107,6 @@
         </div>
     </footer>
     <!-- Footer End -->
-    <script src="script.js"></script>
+    <script src="{{ asset('js/register.js') }}"></script>
 </body>
 </html>

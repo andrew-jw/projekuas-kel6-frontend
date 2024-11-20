@@ -63,13 +63,21 @@
     <div class="sidebar-account" id="sidebar-account">
         <div class="sidebar-container">
             <button class="close-sidebar" id="close-account">&times;</button> 
-            <h3>LOGIN</h3>
-            <hr class="divider">
-            <ul>
+            <form action="{{ route('login.process') }}" method="POST" id="account-form">
+                @csrf
+                <h3>LOGIN</h3>
+                <hr class="divider">
+                <ul>
                 <li>
-                    <input type="email-account" id="email-account" name="email-account" placeholder="Email" required>
+                    @error('email')
+                        <p>{{ $message }}</p>
+                    @enderror
+                    <input type="email-account" id="email" name="email" placeholder="Email" required>
                 </li>
                 <li>
+                    @error('password')
+                        <p>{{ $message }}</p>
+                    @enderror
                     <input type="password" id="password" name="password" placeholder="Password" required>
                 </li>
                 <li>
@@ -79,12 +87,13 @@
                     <button type="submit" form="account-form" id="login">Login</button>
                 </li>
                 <li>
-                    <a href="Register/index.html" id="create-account">New customer? Create a new account</a>
+                    <a href="{{ route('register') }}" id="create-account">New customer? Create a new account</a>
                 </li>
                 <li>
                     <a href="AdminLogin/index.html" id="admin-login">Admin Login</a>
-                </li>
-            </ul>    
+                    </li>
+                </ul>    
+            </form>
         </div>
     </div>
 
