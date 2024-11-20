@@ -8,14 +8,14 @@
     <!-- JQuery script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <link rel="icon" href="../assets/brand-logo.png" type="image/png" />
+    <link rel="icon" href="{{ asset('img/brand-logo.png') }}" type="image/png" />
 </head>
 <body>
     <!-- Navigation Bar Start-->
     <nav class="navbar fade-in blur">
         <div class="navbar-logo">
-            <a href="../index.html">
-                <img src="../assets/brand-logo.png" id="navbar-logo">    
+            <a href="{{ route('home') }}">
+                <img src="{{ asset('img/brand-logo.png') }}" id="navbar-logo">    
             </a>
         </div>
         <div class="navbar-menu">
@@ -24,18 +24,18 @@
                 <li><a href="../Products/index.html"><h3>Products</h3></a></li>
                 <li><a href="../Products/indexmale.html"><h3>Male</h3></a></li>
                 <li><a href="../Products/indexfemale.html"><h3>Female</h3></a></li>
-                <li><a href="../Contact/index.html"><h3>Contact</h3></a></li>
+                <li><a href="{{ route('contact') }}"><h3>Contact</h3></a></li>
             </ul>
             <!-- Mobile Icons -->
             <div class="mobile-icons">
-                <a href=""><div class="icon-container"><a id="account-button-mobile"><img class="icon" src="../assets/account.png"></div></a></a>
-                <a href=""><div class="icon-container"><a id="cart-button-mobile"><img class="icon" src="../assets/cart.png"></div></a></a>
+                <a href=""><div class="icon-container"><a id="account-button-mobile"><img class="icon" src="{{ asset('img/account.png') }}"></div></a></a>
+                <a href=""><div class="icon-container"><a id="cart-button-mobile"><img class="icon" src="{{ asset('img/cart.png') }}"></div></a></a>
             </div>
         </div>        
         <!-- Destkop Icons -->
         <div class="icons">
-            <a href=""><div class="icon-container"><a id="account-button"><img class="icon" src="../assets/account.png"></div></a> </a>
-            <a href=""><div class="icon-container"><a id="cart-button"><img class="icon" src="../assets/cart.png"></div></a> </a>
+            <a href=""><div class="icon-container"><a id="account-button"><img class="icon" src="{{ asset('img/account.png') }}"></div></a> </a>
+            <a href=""><div class="icon-container"><a id="cart-button"><img class="icon" src="{{ asset('img/cart.png') }}"></div></a> </a>
         </div>
         <div class="burger-menu" id="burger-menu">
             <div class="line"></div>
@@ -79,10 +79,10 @@
                     <button type="submit" form="account-form" id="login">Login</button>
                 </li>
                 <li>
-                    <a href="Register/index.html" id="create-account">New customer? Create a new account</a>
+                    <a href="{{ route('register') }}" id="create-account">New customer? Create a new account</a>
                 </li>
                 <li>
-                    <a href="AdminLogin/index.html" id="admin-login">Admin Login</a>
+                    <a href="{{ route('adminlogin') }}" id="admin-login">Admin Login</a>
                 </li>
             </ul>    
         </div>
@@ -139,23 +139,23 @@
     <footer class="footer fade-in blur">
         <div class="footer-content">
             <div class="logo">
-                <img src="../assets/brand-logo.png"/>
+                <img src="{{ asset('img/brand-logo.png') }}"/>
             </div>
             <div class="footer-menu">
                 <a href="" class="footer-link">Products</a>
                 <a href="" class="footer-link">Male</a>
                 <a href="" class="footer-link">Female</a>
-                <a href="" class="footer-link">Contact</a>
+                <a href="{{ route('contact') }}" class="footer-link">Contact</a>
             </div>
             <div class="social">
                 <div class="social-icon-container">
-                    <a href="" target="_blank" class="social-icon"><img src="../assets/instagram.png"/></a>    
+                    <a href="" target="_blank" class="social-icon"><img src="{{ asset('img/instagram.png') }}"/></a>    
                 </div>
                 <div class="social-icon-container">
-                    <a href="" target="_blank" class="social-icon"><img src="../assets/twitter.png"/></a>    
+                    <a href="" target="_blank" class="social-icon"><img src="{{ asset('img/twitter.png') }}"/></a>    
                 </div>
                 <div class="social-icon-container">
-                    <a href="" target="_blank" class="social-icon"><img src="../assets/whatsapp.png"/></a>    
+                    <a href="" target="_blank" class="social-icon"><img src="{{ asset('img/whatsapp.png') }}"/></a>    
                 </div>
             </div>
         </div>

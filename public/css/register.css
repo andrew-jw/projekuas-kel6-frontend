@@ -148,7 +148,7 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('../assets/regis-contact-bg.jpg') center center/cover no-repeat;
+    background: url('../img/regis-contact-bg.jpg') center center/cover no-repeat;
     z-index: 0; 
 }
 
