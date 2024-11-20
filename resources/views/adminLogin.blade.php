@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login - SuShoes</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ asset('css/adminLogin.css') }}">
     <!-- JQuery script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <link rel="icon" href="../assets/brand-logo.png" type="image/png" />
+    <link rel="icon" href="{{ asset('img/brand-logo.png') }}" type="image/png" />
 </head>
 <body>
     <!-- Navigation Bar Start-->
     <nav class="navbar fade-in blur">
         <div class="navbar-logo">
-            <a href="../index.html">
-                <img src="../assets/brand-logo.png" id="navbar-logo">    
+            <a href="{{ route('home') }}">
+                <img src="{{ asset('img/brand-logo.png') }}" id="navbar-logo">    
             </a>
         </div>
         <div class="navbar-menu">
@@ -25,12 +25,12 @@
             </ul>
             <!-- Mobile Icons -->
             <div class="mobile-icons">
-                <a><div class="icon-container"><a href="../index.html" id="home-button"><img class="icon" src="../assets/home.png"></div></a> </a>
+                <a><div class="icon-container"><a href="{{ route('home') }}" id="home-button"><img class="icon" src="{{ asset('img/home.png') }}"></div></a> </a>
             </div>
         </div>        
         <!-- Destkop Icons -->
         <div class="icons">
-            <a><div class="icon-container"><a href="../index.html" id="home-button"><img class="icon" src="../assets/home.png"></div></a> </a>
+            <a><div class="icon-container"><a href="{{ route('home') }}" id="home-button"><img class="icon" src="{{ asset('img/home.png') }}"></div></a> </a>
         </div>
         <div class="burger-menu" id="burger-menu">
             <div class="line"></div>
@@ -62,7 +62,7 @@
     <footer class="footer fade-in blur">
         <div class="footer-content">
             <div class="logo">
-                <img src="../assets/brand-logo.png"/>
+                <img src="{{ asset('img/brand-logo.png') }}"/>
             </div>
         </div>
         <div class="copyright">
@@ -70,6 +70,6 @@
         </div>
     </footer>
     <!-- Footer End -->
-    <script src="script.js"></script>
+    <script src="{{ asset('js/adminLogin.js') }}"></script>
 </body>
 </html>
