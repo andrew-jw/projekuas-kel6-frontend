@@ -1,4 +1,5 @@
 app.controller('RegisterController', function($scope, $timeout) {
+    // VIEWS START
     // Using jQuery to change an element's style after the page is loaded
     $scope.$on('$viewContentLoaded', function() {
         // This ensures the DOM is fully loaded before running jQuery
@@ -19,4 +20,42 @@ app.controller('RegisterController', function($scope, $timeout) {
         });
     });
     // Entrance Transition End
+
+    // VIEWS END
+
+
+    // HTTP Methods Start
+    // Data untuk formulir pendaftaran
+    $scope.user = {
+        first_name: '',
+        last_name: '',
+        email: '',
+        password: ''
+    };
+
+    // Pesan error dan sukses
+    $scope.errorMessage = '';
+    $scope.successMessage = '';
+
+    // Fungsi untuk mendaftarkan pengguna
+    $scope.register = function() {
+        // Kirim data ke API dengan POST request
+        $http.post('/api/register', $scope.user)
+            .then(function(response) {
+                // Jika berhasil
+                $scope.successMessage = 'Account created successfully!';
+                $scope.errorMessage = '';
+                $scope.user = {}; // Reset form
+            })
+            .catch(function(error) {
+                // Jika ada error
+                if (error.data && error.data.message) {
+                    $scope.errorMessage = error.data.message;
+                } else {
+                    $scope.errorMessage = 'An error occurred. Please try again.';
+                }
+                $scope.successMessage = '';
+            });
+    };
+
 });
