@@ -1,1 +1,2 @@
-var app = angular.module('authApp', ['ngRoute']);
+var app = angular.module('authApp', ['ngRoute', 'oc.lazyLoad']);
+

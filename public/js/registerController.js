@@ -1,4 +1,4 @@
-app.controller('RegisterController', function($scope, $timeout) {
+app.controller('RegisterController', function($scope, $http, $timeout) {
     // VIEWS START
     // Using jQuery to change an element's style after the page is loaded
     $scope.$on('$viewContentLoaded', function() {
