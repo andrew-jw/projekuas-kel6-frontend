@@ -9,6 +9,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
     <!-- JQuery script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- ocLazyLoad to use controllers dynamicly -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/oclazyload/1.1.0/ocLazyLoad.min.js"></script>
+
     <!-- Main Angular Js -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/route.js') }}"></script>

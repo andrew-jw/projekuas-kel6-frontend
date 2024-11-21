@@ -3,19 +3,38 @@ app.config(function($routeProvider, $locationProvider) {
         .when('/contact', {
             templateUrl: '/views/contact.html',
             controller: 'ContactController',
+            resolve: {
+                load: function($ocLazyLoad) {
+                    return $ocLazyLoad.load('/js/contactController.js');
+                }
+            }
         })
         .when('/', {
             templateUrl: '/views/home.html',
             controller: 'HomeController',
-            title: 'Home Page - My Website'
+            resolve: {
+                load: function($ocLazyLoad) {
+                    return $ocLazyLoad.load('/js/homeController.js');
+                }
+            }
         })
         .when('/register', {
             templateUrl: '/views/register.html',
             controller: 'RegisterController',
+            resolve: {
+                load: function($ocLazyLoad) {
+                    return $ocLazyLoad.load('/js/registerController.js');
+                }
+            }
         })
         .when('/adminLogin', {
             templateUrl: '/views/adminLogin.html',
             controller: 'AdminLoginController',
+            resolve: {
+                load: function($ocLazyLoad) {
+                    return $ocLazyLoad.load('/js/adminLoginController.js');
+                }
+            }
         })
         .otherwise({
             redirectTo: '/'
@@ -25,5 +44,5 @@ app.config(function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode({
         enabled: true,
         requireBase: false
-      });
+    });
 });
