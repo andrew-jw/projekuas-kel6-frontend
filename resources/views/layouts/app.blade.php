@@ -10,11 +10,14 @@
     <!-- JQuery script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Main Angular Js -->
-    <script src="{{ asset('js/angularjs/app.js') }}"></script>
-    <script src="{{ asset('js/angularjs/route.js') }}"></script>
-    <script src="{{ asset('js/angularjs/services.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/route.js') }}"></script>
+    <script src="{{ asset('js/services.js') }}"></script>
     <!-- Controllers for each page -->
-    <script src="{{ asset('js/angularjs/homeController.js') }}"></script>
+    <script src="{{ asset('js/homeController.js') }}"></script>
+    <script src="{{ asset('js/contactController.js') }}"></script>
+    <script src="{{ asset('js/registerController.js') }}"></script>
+    <script src="{{ asset('js/adminLoginController.js') }}"></script>
     <!-- Icon for title bar -->
     <link rel="icon" href=
         "{{ asset('img/brand-logo.png') }}"

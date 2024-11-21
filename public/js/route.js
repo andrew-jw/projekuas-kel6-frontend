@@ -2,7 +2,7 @@ app.config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/contact', {
             templateUrl: '/views/contact.html',
-            // controller: '/js/angularjs/controllers.js',
+            controller: 'ContactController',
         })
         .when('/', {
             templateUrl: '/views/home.html',
@@ -11,11 +11,11 @@ app.config(function($routeProvider, $locationProvider) {
         })
         .when('/register', {
             templateUrl: '/views/register.html',
-            // controller: '/js/angularjs/homeControllers.js',
+            controller: 'RegisterController',
         })
         .when('/adminLogin', {
             templateUrl: '/views/adminLogin.html',
-            // controller: '/js/angularjs/controllers.js',
+            controller: 'AdminLoginController',
         })
         .otherwise({
             redirectTo: '/'

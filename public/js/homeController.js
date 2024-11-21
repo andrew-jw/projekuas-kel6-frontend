@@ -228,6 +228,4 @@ app.controller('HomeController', function($scope, $timeout) {
     }
     // 4.Product Carousel End
 
-    console.log('homeController.js loaded');
-
 });

@@ -1,10 +1,9 @@
-
 <div>
     <link rel="stylesheet" href="/css/home.css">
     <!-- Navigation Bar Start-->
     <nav class="navbar fade-in blur">
         <div class="navbar-logo">
-            <a href="index.html">
+            <a ng-href="/">
                 <img src="img/brand-logo.png" id="navbar-logo">    
             </a>
         </div>
@@ -14,7 +13,7 @@
                 <li><a href="Products/index.html"><h3>Products</h3></a></li>
                 <li><a href="Products/indexmale.html"><h3>Male</h3></a></li>
                 <li><a href="Products/indexfemale.html"><h3>Female</h3></a></li>
-                <li><a href="Contact/index.html"><h3>Contact</h3></a></li>
+                <li><a ng-href="/contact"><h3>Contact</h3></a></li>
             </ul>
             <!-- Mobile Icons -->
             <div class="mobile-icons">
@@ -68,10 +67,10 @@
                     <button type="submit" form="account-form" id="login">Login</button>
                 </li>
                 <li>
-                    <a href="Register/index.html" id="create-account">New customer? Create a new account</a>
+                    <a ng-href="/register" id="create-account">New customer? Create a new account</a>
                 </li>
                 <li>
-                    <a href="AdminLogin/index.html" id="admin-login">Admin Login</a>
+                    <a ng-href="/adminLogin" id="admin-login">Admin Login</a>
                 </li>
             </ul>    
         </div>
@@ -223,7 +222,7 @@
                 <a href="Products/index.html" class="footer-link">Products</a>
                 <a href="/Products/indexmale.html" class="footer-link">Male</a>
                 <a href="/Products/indexfemale.html" class="footer-link">Female</a>
-                <a href="Contact/index.html" class="footer-link">Contact</a>
+                <a ng-href="#/contact" class="footer-link">Contact</a>
             </div>
             <div class="social">
                 <div class="social-icon-container">
