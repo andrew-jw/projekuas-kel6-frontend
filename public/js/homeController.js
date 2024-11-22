@@ -1,4 +1,4 @@
-app.controller('HomeController', function($scope, $timeout) {
+app.controller('HomeController', function($scope, $timeout, $http) {
     // Using jQuery to change an element's style after the page is loaded
     $scope.$on('$viewContentLoaded', function() {
         // This ensures the DOM is fully loaded before running jQuery
@@ -228,4 +228,34 @@ app.controller('HomeController', function($scope, $timeout) {
     }
     // 4.Product Carousel End
 
+
+    // 5.Login
+    $scope.login ={
+        email: '',
+        password: ''
+    }
+
+    $scope.errorMessage = '';
+    $scope.successMessage = '';
+
+    $scope.login = function() {
+        $http.post('/api/login', {
+            email: $scope.login.email,
+            password: $scope.login.password
+        })
+        .then(function(response) {
+            $scope.successMessage = 'Login successful!';
+            $scope.errorMessage = '';
+            $scope.login = {};
+            // Redirect or perform any other action on success
+        })
+        .catch(function(error) {
+            if (error.data && error.data.message) {
+                $scope.errorMessage = error.data.message;
+            } else {
+                $scope.errorMessage = 'An error occurred. Please try again.';
+            }
+            $scope.successMessage = '';
+        });
+    }
 });

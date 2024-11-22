@@ -50,4 +50,6 @@ class AccountController extends Controller
             return redirect('/register')->with('success', 'Account created successfully!');
         }
     }
+
+
 }
