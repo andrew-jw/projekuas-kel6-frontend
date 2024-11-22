@@ -239,10 +239,7 @@ app.controller('HomeController', function($scope, $timeout, $http) {
     $scope.successMessage = '';
 
     $scope.login = function() {
-        $http.post('/api/login', {
-            email: $scope.login.email,
-            password: $scope.login.password
-        })
+        $http.post('/api/login', $scope.login)
         .then(function(response) {
             $scope.successMessage = 'Login successful!';
             $scope.errorMessage = '';

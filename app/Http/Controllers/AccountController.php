@@ -37,8 +37,8 @@ class AccountController extends Controller
             $accounts->first_name = $request->input('first_name');
             $accounts->last_name = $request->input('last_name');
             $accounts->email = $request->input('email');
-            // $accounts->password = Hash::make($request->input('password'));
-            $accounts->password = $request->input('password');
+            $accounts->password = Hash::make($request->input('password'));
+            // $accounts->password = $request->input('password');
             $accounts->save();
 
             // $failedAttempts = new FailedAttempt();
