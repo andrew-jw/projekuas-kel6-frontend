@@ -14,9 +14,6 @@ use App\Http\Controllers\AccountController;
 |
 */
 
-// Register
-Route::post('/register', [AccountController::class, 'create']);
 
-// Login
-Route::post('/login', [AccountController::class, 'login']);
-
+// // Register
+// Route::post('/register', [AccountController::class, 'create']);
