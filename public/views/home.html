@@ -53,8 +53,9 @@
             <button class="close-sidebar" id="close-account">&times;</button> 
             <h3>LOGIN</h3>
             <hr class="divider">
-            <form id="account-form" ng-submit="login()">
+            
                 <ul>
+                    <form id="account-form" ng-submit="login()">
                     <li>
                         <input type="email" id="email-account" name="email-account" placeholder="Email" ng-model="login.email" required>
                     </li>
@@ -67,6 +68,16 @@
                     <li>
                         <button type="submit" id="login">Login</button>
                     </li>
+                    </form>
+                    <li>
+                        <!-- Error and Success Messages -->
+                        <div ng-if="errorMessage" class="alert alert-danger">
+                            {{ errorMessage }}
+                        </div>
+                        <div ng-if="successMessage" class="alert alert-success">
+                            {{ successMessage }}
+                        </div>
+                    </li>
                     <li>
                         <a ng-href="/register" id="create-account">New customer? Create a new account</a>
                     </li>
@@ -74,7 +85,8 @@
                         <a ng-href="/adminLogin" id="admin-login">Admin Login</a>
                     </li>
                 </ul>
-            </form>
+            
+
         </div>
     </div>
 

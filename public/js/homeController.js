@@ -239,7 +239,10 @@ app.controller('HomeController', function($scope, $timeout, $http) {
     $scope.successMessage = '';
 
     $scope.login = function() {
-        $http.post('/api/login', $scope.login)
+        $http.post('/api/login', {
+            email: $scope.login.email,
+            password: $scope.login.password
+        })
         .then(function(response) {
             $scope.successMessage = 'Login successful!';
             $scope.errorMessage = '';
@@ -247,7 +250,10 @@ app.controller('HomeController', function($scope, $timeout, $http) {
             // Redirect or perform any other action on success
         })
         .catch(function(error) {
-            if (error.data && error.data.message) {
+            console.error('Error response:', error);
+            if (error.data && error.data.errors) {
+                $scope.errorMessage = Object.values(error.data.errors).join(' ');
+            } else if (error.data && error.data.message) {
                 $scope.errorMessage = error.data.message;
             } else {
                 $scope.errorMessage = 'An error occurred. Please try again.';
