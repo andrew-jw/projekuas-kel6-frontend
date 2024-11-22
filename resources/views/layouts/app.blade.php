@@ -17,11 +17,13 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/route.js') }}"></script>
     <script src="{{ asset('js/services.js') }}"></script>
+
     <!-- Controllers for each page -->
     <script src="{{ asset('js/homeController.js') }}"></script>
     <script src="{{ asset('js/contactController.js') }}"></script>
     <script src="{{ asset('js/registerController.js') }}"></script>
     <script src="{{ asset('js/adminLoginController.js') }}"></script>
+
     <!-- Icon for title bar -->
     <link rel="icon" href=
         "{{ asset('img/brand-logo.png') }}"

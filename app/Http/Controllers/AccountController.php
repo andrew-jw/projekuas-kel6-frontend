@@ -46,7 +46,8 @@ class AccountController extends Controller
             // $failedAttempts->attempts = 0;
             // $failedAttempts->save();
 
-            return redirect()->route('register', ['id' => $accounts->id]);
+             // Redirect to /register
+            return redirect('/register')->with('success', 'Account created successfully!');
         }
     }
 }
