@@ -230,10 +230,6 @@ app.controller('HomeController', function($scope, $timeout, $http) {
 
 
     // 5.Login
-    $scope.login ={
-        email: '',
-        password: ''
-    }
 
     $scope.errorMessage = '';
     $scope.successMessage = '';

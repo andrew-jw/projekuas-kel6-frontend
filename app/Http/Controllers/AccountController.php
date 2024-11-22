@@ -37,16 +37,8 @@ class AccountController extends Controller
             $accounts->first_name = $request->input('first_name');
             $accounts->last_name = $request->input('last_name');
             $accounts->email = $request->input('email');
-            $accounts->password = Hash::make($request->input('password'));
-            // $accounts->password = $request->input('password');
+            $accounts->password = $request->input('password');
             $accounts->save();
-
-            // $failedAttempts = new FailedAttempt();
-            // $failedAttempts->email = $request->input('email');
-            // $failedAttempts->attempts = 0;
-            // $failedAttempts->save();
-
-             // Redirect to /register
             return redirect('/register')->with('success', 'Account created successfully!');
         }
     }
