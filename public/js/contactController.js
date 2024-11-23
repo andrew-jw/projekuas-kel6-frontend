@@ -1,4 +1,4 @@
-app.controller('ContactController', function($scope, $timeout) {
+app.controller('ContactController', function($scope, $timeout, $http) {
     // Using jQuery to change an element's style after the page is loaded
     $scope.$on('$viewContentLoaded', function() {
         // This ensures the DOM is fully loaded before running jQuery
@@ -107,5 +107,32 @@ app.controller('ContactController', function($scope, $timeout) {
     closeForgotButton.addEventListener('click', () => {
         sidebarForgot.classList.remove('active');
     });
+
+    $scope.contact = {
+        first_name: '',
+        last_name: '',
+        work_email: '',
+        message: '',
+    };
+
+    $scope.errorMessage = '';
+    $scope.successMessage = '';
+
+    $scope.contact = function() {
+        $http.post('/api/contact', $scope.contact)
+        .then(function(response) {
+            $scope.successMessage = response.data.message;
+            $scope.errorMessage = '';
+            $scope.contact = {}; // Reset form fields
+        })
+        .catch(function(error) {
+            if (error.data && error.data.errors) {
+                $scope.errorMessage = error.data.errors; 
+            } else {
+                $scope.errorMessage = 'An error occurred. Please try again.';
+            }
+            $scope.successMessage = '';
+        });
+    };
 
 });

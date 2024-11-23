@@ -40,7 +40,9 @@ class LoginController extends Controller
     
         // Authentication failed
         return response()->json([
-            'message' => 'Invalid credentials. Please try again.'
+            'message' => 'Invalid email or password'
         ], 401);
+
+        
     }
 } 
