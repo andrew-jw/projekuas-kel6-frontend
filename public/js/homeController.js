@@ -240,13 +240,13 @@ app.controller('HomeController', function($scope, $timeout, $http) {
             password: $scope.login.password
         })
         .then(function(response) {
-            $scope.successMessage = 'Login successful!';
+            $scope.successMessage = response.data.message;;
             $scope.errorMessage = '';
             $scope.login = {};
             // Redirect or perform any other action on success
         })
         .catch(function(error) {
-            console.error('Error response:', error);
+            console.error('Error:', error);
             if (error.data && error.data.errors) {
                 $scope.errorMessage = Object.values(error.data.errors).join(' ');
             } else if (error.data && error.data.message) {
