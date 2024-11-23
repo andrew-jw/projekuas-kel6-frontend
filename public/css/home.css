@@ -244,10 +244,18 @@ html, body {
     transition: border-color 0.3s ease;
 }
 
-.sidebar-account ul li input[type="email-account"]:focus,
+.sidebar-account ul li input[type="email"]:focus,
 .sidebar-account ul li input[type="password"]:focus {
-    border-color: grey; 
-    outline: none; 
+    border-color: grey;
+    outline: auto;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.sidebar-account ul li input[type="email"]::placeholder,
+.sidebar-account ul li input[type="password"]::placeholder {
+    color: #aaa; 
+    font-style: italic; 
 }
 
 #forgot-button, #create-account, #admin-login {
@@ -314,7 +322,7 @@ html, body {
     margin-bottom: 15px; 
 }
 
-.sidebar-forgot ul li input[type="email-account"]{
+.sidebar-forgot ul li input[type="email"]{
     width: 100%; 
     padding: 10px;
     margin-top: 5px;
@@ -325,9 +333,14 @@ html, body {
     transition: border-color 0.3s ease;
 }
 
-.sidebar-forgot ul li input[type="email-account"]:focus {
+.sidebar-forgot ul li input[type="email"]:focus {
     border-color: grey; 
     outline: none; 
+}
+
+.sidebar-forgot ul li input[type="email"]::placeholder {
+    color: #aaa; 
+    font-style: italic; 
 }
 
 .sidebar-forgot ul button  {

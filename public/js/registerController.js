@@ -24,8 +24,9 @@ app.controller('RegisterController', function($scope, $http, $timeout) {
     // VIEWS END
 
 
-    // HTTP Methods Start
-    // Data untuk formulir pendaftaran
+    // CRUD METHODS START
+
+    // Data needed for register
     $scope.user = {
         first_name: '',
         last_name: '',
@@ -33,22 +34,22 @@ app.controller('RegisterController', function($scope, $http, $timeout) {
         password: ''
     };
 
-    // Pesan error dan sukses
+    // Error and sucess message
     $scope.errorMessage = '';
     $scope.successMessage = '';
 
-    // Fungsi untuk mendaftarkan pengguna
+    // Function to register new account
     $scope.register = function() {
-        // Kirim data ke API dengan POST request
+        // Sending data to API with POST request
         $http.post('/api/register', $scope.user)
             .then(function(response) {
-                // Jika berhasil
-                $scope.successMessage = 'Account created successfully!';
+                // If successful
+                $scope.successMessage = response.data.message;
                 $scope.errorMessage = '';
-                $scope.user = {}; // Reset form
+                $scope.user = {}; 
             })
             .catch(function(error) {
-                // Jika ada error
+                // if failed
                 if (error.data && error.data.message) {
                     $scope.errorMessage = error.data.message;
                 } else {
@@ -57,5 +58,5 @@ app.controller('RegisterController', function($scope, $http, $timeout) {
                 $scope.successMessage = '';
             });
     };
-
+    // CRUD METHODS END
 });

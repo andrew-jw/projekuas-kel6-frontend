@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class LoginController extends Controller
@@ -16,33 +17,27 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function process_login(Request $request)
+    public function login(Request $request)
     {
-        // Log the incoming request data for debugging
-        \Log::info('Login attempt:', $request->all());
-
         // Validate the request data
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required|string|min:8',
         ]);
-
+    
         // Check if validation fails
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
         }
-
-        // Manually authenticate the user without hashing
-        $user = DB::table('accounts')
-            ->where('email', $request->input('email'))
-            ->where('password', $request->input('password')) // Note: Storing plain text passwords is not secure
-            ->first();
-            
-        if ($user) {
-            // Authentication passed
+    
+        // Find the user by email
+        $user = DB::table('accounts')->where('email', $request->input('email'))->first();
+    
+        if ($user && Hash::check($request->input('password'), $user->password)) {
+            // If password is valid then login successful
             return response()->json(['message' => 'Login successful!'], 200);
         }
-
+    
         // Authentication failed
         return response()->json([
             'message' => 'Invalid credentials. Please try again.'

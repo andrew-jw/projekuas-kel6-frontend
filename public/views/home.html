@@ -71,10 +71,10 @@
                     </form>
                     <li>
                         <!-- Error and Success Messages -->
-                        <div ng-if="errorMessage" class="alert alert-danger">
+                        <div ng-if="errorMessage" class="error-message">
                             {{ errorMessage }}
                         </div>
-                        <div ng-if="successMessage" class="alert alert-success">
+                        <div ng-if="successMessage" class="success-message">
                             {{ successMessage }}
                         </div>
                     </li>
@@ -98,7 +98,7 @@
             <p>Lost your password? Please enter your email address. You will receive a link to create a new password via email.</p>
             <ul>
                 <li>
-                    <input type="email-account" id="email-account" name="email-account" placeholder="Email" required>
+                    <input type="email" id="email-account" name="email-account" placeholder="Email" required>
                 </li>
                 <li>
                     <button type="submit" form="account-form" id="reset">Reset Password</button>
