@@ -55,20 +55,22 @@
             <hr class="divider">
             
                 <ul>
-                    <form id="account-form" ng-submit="login()">
+                    <form id="account-form" ng-submit="login()" ng-if="showLoginForm">
                     <li>
                         <input type="email" id="email-account" name="email-account" placeholder="Email" ng-model="login.email" required>
                     </li>
                     <li>
                         <input type="password" id="password" name="password" placeholder="Password" ng-model="login.password" required>
                     </li>
-                    <li>
-                        <a href="#" id="forgot-button">Forgot your password?</a>
-                    </li>
+
                     <li>
                         <button type="submit" id="login">Login</button>
                     </li>
                     </form>
+                    <!-- When user has login -->
+                    <div ng-if="!showLoginForm">
+                        <p>Welcome, user! You're on your personal page</p>
+                    </div>
                     <li>
                         <!-- Error and Success Messages -->
                         <div ng-if="errorMessage" class="error-message">
@@ -79,14 +81,15 @@
                         </div>
                     </li>
                     <li>
+                        <a href="#" id="forgot-button">Forgot your password?</a>
+                    </li>
+                    <li>
                         <a ng-href="/register" id="create-account">New customer? Create a new account</a>
                     </li>
                     <li>
                         <a ng-href="/adminLogin" id="admin-login">Admin Login</a>
                     </li>
                 </ul>
-            
-
         </div>
     </div>
 

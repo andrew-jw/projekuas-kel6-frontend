@@ -49,6 +49,10 @@ class LoginController extends Controller
                         ->update(['failed_attempts' => 0]);
                 }
 
+                // Authenticate the user using Laravel's session-based authentication
+                // Auth::login($user);
+
+                // return redirect()->route('homeLogin', ['id' => $user->id]);
                 // Success response
                 return response()->json(['message' => 'Login successful!'], 200);
             } else {
