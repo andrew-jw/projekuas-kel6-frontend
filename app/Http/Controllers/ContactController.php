@@ -12,7 +12,12 @@ use Illuminate\Http\Request;
 class ContactController extends Controller
 {
 
-    // Contact form
+      /**
+     * Handle the contact request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function contact(Request $request)
     {
       $validator = Validator::make($request->all(), [
@@ -35,8 +40,5 @@ class ContactController extends Controller
 
       return response()->json(['message' => 'Contact successful!'], 200);
 
-      if (!$contact) {
-        return response()->json(['message' => 'Contact failed!'], 500);
-      }
     }
 }

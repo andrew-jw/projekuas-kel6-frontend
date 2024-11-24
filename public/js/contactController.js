@@ -108,7 +108,7 @@ app.controller('ContactController', function($scope, $timeout, $http) {
         sidebarForgot.classList.remove('active');
     });
 
-    $scope.contact = {
+    $scope.contactData = {
         first_name: '',
         last_name: '',
         work_email: '',
@@ -119,7 +119,7 @@ app.controller('ContactController', function($scope, $timeout, $http) {
     $scope.successMessage = '';
 
     $scope.contact = function() {
-        $http.post('/api/contact', $scope.contact)
+        $http.post('/api/contact', $scope.contactData)
         .then(function(response) {
             $scope.successMessage = response.data.message;
             $scope.errorMessage = '';
