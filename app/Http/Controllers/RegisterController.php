@@ -42,6 +42,7 @@ class RegisterController extends Controller
         $accounts->last_name = $request->input('last_name');
         $accounts->email = $request->input('email');
         $accounts->password = bcrypt($request->input('password'));
+        $accounts->failed_attempts = 0;
         $accounts->save();
 
         return response()->json([
