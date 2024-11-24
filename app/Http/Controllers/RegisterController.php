@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Account;
 use Illuminate\Support\Facades\Hash;
-use App\Models\FailedAttempt;
 
 class RegisterController extends Controller
 {
-    // Create new account
+    /**
+     * Handle the register request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [

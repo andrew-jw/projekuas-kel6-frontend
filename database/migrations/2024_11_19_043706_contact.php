@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('work_email');
             $table->string('message');
+            $table->timestamps();
         });
     }
 
