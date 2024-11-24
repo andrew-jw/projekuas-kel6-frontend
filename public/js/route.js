@@ -36,6 +36,16 @@ app.config(function($routeProvider, $locationProvider) {
                 }
             }
         })
+        // New route to handle dynamic user ID
+        .when('/:id', {
+            templateUrl: '/views/home.html',
+            controller: 'HomeController',
+            resolve: {
+                load: function($ocLazyLoad) {
+                    return $ocLazyLoad.load('/js/homeController.js');
+                }
+            }
+        })
         .otherwise({
             redirectTo: '/'
         });

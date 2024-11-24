@@ -1,4 +1,4 @@
-app.controller('HomeController', function($scope, $timeout, $http) {
+app.controller('HomeController', function($scope, $timeout, $routeParams,  $http) {
     // Using jQuery to change an element's style after the page is loaded
     $scope.$on('$viewContentLoaded', function() {
         // This ensures the DOM is fully loaded before running jQuery
@@ -19,6 +19,8 @@ app.controller('HomeController', function($scope, $timeout, $http) {
         });
     });
     // 1.Entrance Transition End
+
+
 
     // 2.Navbar and sidebar
     const burgerMenu = document.getElementById('burger-menu');
@@ -228,8 +230,15 @@ app.controller('HomeController', function($scope, $timeout, $http) {
     }
     // 4.Product Carousel End
 
+    console.log($routeParams);
 
     // 5.Login
+    
+    // Check if the 'id' is part of the route
+    $scope.userId = $routeParams.id;
+
+    // Derterment what to show on sidebar account (login form or account info)
+    $scope.showLoginForm = !$scope.userId;
 
     $scope.errorMessage = '';
     $scope.successMessage = '';
