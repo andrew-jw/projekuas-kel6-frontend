@@ -81,7 +81,7 @@ class LoginController extends Controller
 
         // If the email doesn't exist, return the same failure message
         return response()->json([
-            'message' => 'Invalid email'
+            'message' => 'Email not found'
         ], 401);
 
     }
