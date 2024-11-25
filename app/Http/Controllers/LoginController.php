@@ -23,6 +23,7 @@ class LoginController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required|string|min:8',
+            'redirect_route' => 'required|string', // Determent the route after login
         ]);
 
         // Check if validation fails
@@ -49,13 +50,16 @@ class LoginController extends Controller
                         ->update(['failed_attempts' => 0]);
                 }
 
+                // Determine redirect URL
+                $redirectRoute = $request->input('redirect_route'); 
+
                 // Authenticate the user using Laravel's session-based authentication
                 // Auth::login($user);
 
                 // Set message login sucessfull and redirect to new page
                 return response()->json([
                     'message' => 'Login successful!',
-                    'redirect_url' => route('homeLogin', ['id' => $user->id]) // URL tujuan
+                    'redirect_url' => route($redirectRoute, ['id' => $user->id]) // URL destination
                 ], 200);
             } else {
                 // Increment the account failed login attempts 
