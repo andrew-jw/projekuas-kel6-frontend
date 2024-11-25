@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use MongoDB\Laravel\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Contact extends Model
+class Contact extends Authenticatable
 {
     use HasFactory, Notifiable;
 

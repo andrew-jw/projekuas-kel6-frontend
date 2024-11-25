@@ -252,7 +252,11 @@ app.controller('HomeController', function($scope, $timeout, $routeParams,  $http
             $scope.successMessage = response.data.message;;
             $scope.errorMessage = '';
             $scope.login = {};
-            // Redirect or perform any other action on success
+
+            // Redirect user to the provided URL
+            if (response.data.redirect_url) {
+                window.location.href = response.data.redirect_url;
+            }
         })
         .catch(function(error) {
             console.error('Error:', error);

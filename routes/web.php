@@ -6,12 +6,12 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ContactController;
 
-// Routes for AngularJS entry point with middleware
-Route::middleware(['auth'])->group(function () {
-    Route::get('/{id}', function () {
-        return view('layouts.app');
-    })->name('homeLogin');
-});
+// After login routes to web page:
+Route::get('/{id}', function () {
+    return view('layouts.app');
+})->name('homeLogin');
+
+
 
 // API Routes (for CRUD operations)
 Route::prefix('api')->group(function () {
