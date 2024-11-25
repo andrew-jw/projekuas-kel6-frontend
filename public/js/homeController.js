@@ -230,8 +230,6 @@ app.controller('HomeController', function($scope, $timeout, $routeParams,  $http
     }
     // 4.Product Carousel End
 
-    console.log($routeParams);
-
     // 5.Login
     
     // Check if the 'id' is part of the route
@@ -244,9 +242,11 @@ app.controller('HomeController', function($scope, $timeout, $routeParams,  $http
     $scope.successMessage = '';
 
     $scope.login = function() {
+        const routeName = 'homeLogin'; 
         $http.post('/api/login', {
             email: $scope.login.email,
-            password: $scope.login.password
+            password: $scope.login.password,
+            redirect_route: routeName
         })
         .then(function(response) {
             $scope.successMessage = response.data.message;;

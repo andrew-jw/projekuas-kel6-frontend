@@ -10,7 +10,9 @@ use App\Http\Controllers\ContactController;
 Route::get('/{id}', function () {
     return view('layouts.app');
 })->name('homeLogin');
-
+Route::get('/contact/{id}', function () {
+    return view('layouts.app');
+})->name('contactLogin');
 
 
 // API Routes (for CRUD operations)

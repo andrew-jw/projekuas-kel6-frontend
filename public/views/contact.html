@@ -54,26 +54,42 @@
             <button class="close-sidebar" id="close-account">&times;</button> 
             <h3>LOGIN</h3>
             <hr class="divider">
-            <ul>
-                <li>
-                    <input type="email" id="email-account" name="email-account" placeholder="Email" required>
-                </li>
-                <li>
-                    <input type="password" id="password" name="password" placeholder="Password" required>
-                </li>
-                <li>
-                    <button type="submit" form="account-form" id="login">Login</button>
-                </li>
-                <li>
-                    <a href="#" id="forgot-button">Forgot your password?</a>
-                </li>
-                <li>
-                    <a ng-href="/register" id="create-account">New customer? Create a new account</a>
-                </li>
-                <li>
-                    <a ng-href="/adminLogin" id="admin-login">Admin Login</a>
-                </li>
-            </ul>    
+                <ul>
+                    <form id="account-form" ng-submit="login()" ng-if="showLoginForm">
+                    <li>
+                        <input type="email" id="email-account" name="email-account" placeholder="Email" ng-model="login.email" required>
+                    </li>
+                    <li>
+                        <input type="password" id="password" name="password" placeholder="Password" ng-model="login.password" required>
+                    </li>
+
+                    <li>
+                        <button type="submit" id="login">Login</button>
+                    </li>
+                    </form>
+                    <!-- When user has login -->
+                    <div ng-if="!showLoginForm">
+                        <p>Welcome, user! You're on your personal page</p>
+                    </div>
+                    <li>
+                        <!-- Error and Success Messages -->
+                        <div ng-if="errorMessage" class="error-message">
+                            {{ errorMessage }}
+                        </div>
+                        <div ng-if="successMessage" class="success-message">
+                            {{ successMessage }}
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" id="forgot-button">Forgot your password?</a>
+                    </li>
+                    <li>
+                        <a ng-href="/register" id="create-account">New customer? Create a new account</a>
+                    </li>
+                    <li>
+                        <a ng-href="/adminLogin" id="admin-login">Admin Login</a>
+                    </li>
+                </ul>
         </div>
     </div>
 

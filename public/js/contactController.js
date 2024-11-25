@@ -1,4 +1,4 @@
-app.controller('ContactController', function($scope, $timeout, $http) {
+app.controller('ContactController', function($scope, $timeout, $routeParams, $http) {
     // Using jQuery to change an element's style after the page is loaded
     $scope.$on('$viewContentLoaded', function() {
         // This ensures the DOM is fully loaded before running jQuery
@@ -10,7 +10,7 @@ app.controller('ContactController', function($scope, $timeout, $http) {
         $('#homeMessage').fadeIn();
     }, 500); // Delay to let Angular render first
 
-        // Entrance Transition Start (using jQuery for simpler syntax)
+    // Entrance Transition Start (using jQuery for simpler syntax)
     // Trigger the active class to do the transition for fade-in
     $('.fade-in').each(function(index) {
         $(this).delay(150 * index).queue(function(next) { // 150ms delay between transitions of each element 
@@ -135,4 +135,43 @@ app.controller('ContactController', function($scope, $timeout, $http) {
         });
     };
 
+    // LOGIN
+    // Check if the 'id' is part of the route
+    $scope.userId = $routeParams.id;
+
+    // Derterment what to show on sidebar account (login form or account info)
+    $scope.showLoginForm = !$scope.userId;
+
+    $scope.errorMessage = '';
+    $scope.successMessage = '';
+
+    $scope.login = function() {
+        const routeName = 'contactLogin'; 
+        $http.post('/api/login', {
+            email: $scope.login.email,
+            password: $scope.login.password,
+            redirect_route: routeName
+        })
+        .then(function(response) {
+            $scope.successMessage = response.data.message;;
+            $scope.errorMessage = '';
+            $scope.login = {};
+
+            // Redirect user to the provided URL
+            if (response.data.redirect_url) {
+                window.location.href = response.data.redirect_url;
+            }
+        })
+        .catch(function(error) {
+            console.error('Error:', error);
+            if (error.data && error.data.errors) {
+                $scope.errorMessage = Object.values(error.data.errors).join(' ');
+            } else if (error.data && error.data.message) {
+                $scope.errorMessage = error.data.message;
+            } else {
+                $scope.errorMessage = 'An error occurred. Please try again.';
+            }
+            $scope.successMessage = '';
+        });
+    }
 });
