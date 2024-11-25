@@ -21,6 +21,7 @@ Route::prefix('api')->group(function () {
     Route::post('/register', [RegisterController::class, 'create']); 
     Route::post('/login', [LoginController::class, 'login']);
     Route::post('/contact', [ContactController::class, 'contact']);
+    Route::get('/account-info/{id}', [LoginController::class, 'getAccountInfo']);
     Route::post('/admin-login', [AdminController::class, 'adminLogin']);
 });
 
