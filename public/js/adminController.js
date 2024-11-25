@@ -1,4 +1,4 @@
-app.controller('AdminLoginController', function($scope, $timeout, $http) {
+app.controller('AdminController', function($scope, $timeout, $http) {
     // Using jQuery to change an element's style after the page is loaded
     $scope.$on('$viewContentLoaded', function() {
         // This ensures the DOM is fully loaded before running jQuery
@@ -9,9 +9,8 @@ app.controller('AdminLoginController', function($scope, $timeout, $http) {
     $timeout(function() {
         $('#homeMessage').fadeIn();
     }, 500); // Delay to let Angular render first
-
-
-        // Entrance Transition Start (using jQuery for simpler syntax)
+    
+    // Entrance Transition Start (using jQuery for simpler syntax)
     // Trigger the active class to do the transition for fade-in
     $('.fade-in').each(function(index) {
         $(this).delay(150 * index).queue(function(next) { // 150ms delay between transitions of each element 
@@ -35,32 +34,20 @@ app.controller('AdminLoginController', function($scope, $timeout, $http) {
         burgerMenu.classList.remove('active');
     });
 
-    $scope.adminLoginData = {
-        username: '',
-        password: '',
-    };
+    // Admin Sidebar Navigation
+    $('.menu-item').on('click', function () {
+        // Highlight selected menu item
+        $('.menu-item').removeClass('active');
+        $(this).addClass('active');
 
-    $scope.errorMessage = '';
-    $scope.successMessage = '';
+        // Hide all content containers
+        $('.content-container').addClass('hidden');
 
-    $scope.adminLogin = function() {
-        $http.post('/api/admin-login', $scope.adminLoginData)
-        .then(function(response) {
-            $scope.successMessage = response.data.message;
-            $scope.errorMessage = '';
-            $scope.adminLoginData = {};
-            
-            // Redirect user to the provided URL
-            if (response.data.redirect_url) {
-                window.location.href = response.data.redirect_url;
-            }
-        })
-        .catch(function(error) {
-            if (error.data && error.data.errors) {
-                $scope.errorMessage = error.data.errors;
-            } else {
-                $scope.errorMessage = 'An error occurred. Please try again.';
-            }
-        });
-    }
+        // Show the selected content
+        const contentId = `#content-${this.id}`;
+        $(contentId).removeClass('hidden');
+    });
+
+    // Show the Home section by default
+    $('#content-home').removeClass('hidden');
 });

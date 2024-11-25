@@ -35,15 +35,17 @@
         <div class="modal-overlay"></div>
         <div class="modal-content">
             <h2>Administrator Login</h2>
-            <form>
+            <form ng-submit="adminLogin()"  >
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="username" id="username" name="username" required>
+                    <input type="username" id="username" name="username" required ng-model="adminLoginData.username">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required></input>
+                    <input type="password" id="password" name="password" required ng-model="adminLoginData.password">
                 </div>
+                <div class="error-message">{{ errorMessage }}</div>
+                <div class="success-message">{{ successMessage }}</div>
                 <button type="submit">Login ></button>
             </form>
         </div>

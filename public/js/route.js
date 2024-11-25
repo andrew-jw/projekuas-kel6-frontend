@@ -54,6 +54,15 @@ app.config(function($routeProvider, $locationProvider) {
                 }
             }
         })
+        .when('/admin/:id', {
+            templateUrl: '/views/admin.html',
+            controller: 'AdminController',
+            resolve: {
+                load: function($ocLazyLoad) {
+                    return $ocLazyLoad.load('/js/adminController.js');
+                }
+            }
+        })
         .otherwise({
             redirectTo: '/'
         });
