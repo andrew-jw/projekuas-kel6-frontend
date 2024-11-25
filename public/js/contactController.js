@@ -123,7 +123,7 @@ app.controller('ContactController', function($scope, $timeout, $http) {
         .then(function(response) {
             $scope.successMessage = response.data.message;
             $scope.errorMessage = '';
-            $scope.contact = {}; // Reset form fields
+            $scope.contactData = {}; // Reset form fields
         })
         .catch(function(error) {
             if (error.data && error.data.errors) {
