@@ -30,3 +30,5 @@ Route::get('/{any}', function () {
     return view('layouts.app'); // Main AngularJS layout
 })->where('any', '.*');
 
+Route::post('/update-settings', [SettingsController::class, 'updateSettings']);
+Route::post('/delete-account', [SettingsController::class, 'deleteAccount']);

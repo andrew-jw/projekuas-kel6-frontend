@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="settingsApp">
+<head>
+    <title>Settings</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="settingsController.js"></script>
+    <link rel="stylesheet" href="../css/contact.css"> <!-- Add styles for design -->
+</head>
+<body ng-controller="SettingsController">
+    <div class="settings-container">
+        <h1>Settings</h1>
+        <p>Edit or Delete Account</p>
+
+        <form ng-submit="updateSettings()">
+            <div>
+                <input type="text" placeholder="New First Name" ng-model="user.firstName">
+                <input type="text" placeholder="New Last Name" ng-model="user.lastName">
+            </div>
+            <div>
+                <input type="email" placeholder="New Email" ng-model="user.email">
+            </div>
+            <div>
+                <input type="password" placeholder="New Password" ng-model="user.password">
+            </div>
+            <div>
+                <button type="submit" class="btn-change">Change ></button>
+            </div>
+        </form>
+
+        <button class="btn-delete" ng-click="deleteAccount()">Delete Account</button>
+    </div>
+</body>
+</html>
