@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Account;
 
 class LoginController extends Controller
 {
@@ -88,5 +89,22 @@ class LoginController extends Controller
             'message' => 'Email not found'
         ], 401);
 
+    }
+
+/**
+     * Get account information.
+     *
+     * @param  string  $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getAccountInfo($id)
+    {
+        $user = Account::find($id); 
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        return response()->json(['account' => $user], 200);
     }
 } 

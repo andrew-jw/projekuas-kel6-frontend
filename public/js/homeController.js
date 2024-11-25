@@ -235,6 +235,8 @@ app.controller('HomeController', function($scope, $timeout, $routeParams,  $http
     // Check if the 'id' is part of the route
     $scope.userId = $routeParams.id;
 
+    // console.log('Account ID:', $scope.userId);
+
     // Derterment what to show on sidebar account (login form or account info)
     $scope.showLoginForm = !$scope.userId;
 
@@ -270,4 +272,30 @@ app.controller('HomeController', function($scope, $timeout, $routeParams,  $http
             $scope.successMessage = '';
         });
     }
+
+    if($scope.userId){
+        $scope.getAccountInfo = function(userId) {
+            // console.log('Fetching Account Info for User ID:', userId);
+        
+            $http.get('/api/account-info/' + userId)
+                .then(function(response) {
+                    // console.log('Response from API:', response); 
+                    $scope.accountInfo = response.data.account;
+                    // console.log('Account Info:', $scope.accountInfo); 
+                    $scope.errorMessage = '';
+                })
+                .catch(function(error) {
+                    console.error('Error:', error);
+                    if (error.data && error.data.message) {
+                        $scope.errorMessage = error.data.message;
+                    } else {
+                        $scope.errorMessage = 'An error occurred. Please try again.';
+                    }
+                });
+        };
+        
+        // Call getAccountInfo 
+        $scope.getAccountInfo($scope.userId);
+    }
+
 });

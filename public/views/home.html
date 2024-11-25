@@ -68,8 +68,18 @@
                     </form>
                     <!-- When user has login -->
                     <div ng-if="!showLoginForm">
-                        <p>Welcome, user! You're on your personal page</p>
+                        <div ng-if="accountInfo">
+                            <p>Welcome, user! You're on your personal page</p>
+                            <p><strong>Account ID:</strong> {{ accountInfo.id }}</p>
+                            <p><strong>Email:</strong> {{ accountInfo.email }}</p>
+                            <p><strong>Name:</strong> {{ accountInfo.first_name }} {{ accountInfo.last_name }}</p>
+                        </div>
+                        <!-- Loading when info not loaded yet -->
+                        <div ng-if="!accountInfo">
+                            <p>{{ errorMessage || 'Loading account information...' }}</p>
+                        </div>
                     </div>
+
                     <li>
                         <!-- Error and Success Messages -->
                         <div ng-if="errorMessage" class="error-message">
