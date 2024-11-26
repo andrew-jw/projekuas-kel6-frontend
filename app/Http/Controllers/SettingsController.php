@@ -1,54 +1,44 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Validator;
+use App\Models\Contact;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
+
 
 use Illuminate\Http\Request;
-use App\Models\User; // Assuming you have a User model
-use Illuminate\Support\Facades\Auth;
 
-class SettingsController extends Controller
+class ContactController extends Controller
 {
-    /**
-     * Update user settings.
+
+      /**
+     * Handle the contact request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function updateSettings(Request $request)
+    public function contact(Request $request)
     {
-        $user = Auth::user(); // Get currently authenticated user
+      $validator = Validator::make($request->all(), [
+        'first_name' => 'required|string|max:255',
+        'last_name' => 'required|string|max:255',
+        'work_email' => 'required|email',
+        'password' => 'required|string',
+      ]);
 
-        $validatedData = $request->validate([
-            'firstName' => 'nullable|string|max:255',
-            'lastName' => 'nullable|string|max:255',
-            'email' => 'nullable|email|max:255|unique:users,email,' . $user->id,
-            'password' => 'nullable|string|min:8',
-        ]);
+      if ($validator->fails()) {
+        return response()->json(['errors' => $validator->errors()], 422);
+      }
 
-        // Update user fields
-        if (!empty($validatedData['firstName'])) {
-            $user->first_name = $validatedData['firstName'];
-        }
-        if (!empty($validatedData['lastName'])) {
-            $user->last_name = $validatedData['lastName'];
-        }
-        if (!empty($validatedData['email'])) {
-            $user->email = $validatedData['email'];
-        }
-        if (!empty($validatedData['password'])) {
-            $user->password = bcrypt($validatedData['password']);
-        }
+      $contact = new Contact();
+      $contact->first_name = $request->input('first_name');
+      $contact->last_name = $request->input('last_name');
+      $contact->work_email = $request->input('work_email');
+      $contact->password = $request->input('message');
+      $contact->save();
 
-        $user->save();
+      return response()->json(['message' => 'Contact successful!'], 200);
 
-        return response()->json(['message' => 'Settings updated successfully.']);
-    }
-
-    /**
-     * Delete user account.
-     */
-    public function deleteAccount()
-    {
-        $user = Auth::user(); // Get currently authenticated user
-        $user->delete(); // Delete the user's account
-
-        return response()->json(['message' => 'Account deleted successfully.']);
     }
 }
